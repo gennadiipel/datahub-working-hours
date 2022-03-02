@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

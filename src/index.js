@@ -1,7 +1,10 @@
+import regeneratorRuntime from "regenerator-runtime";
+
 import DatahubWidget from './datahub-widget';
 import Product from './product';
 
 import jQuery from 'jquery';
+
 
 const init = function(settings) {
 
