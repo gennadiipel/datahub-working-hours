@@ -4,7 +4,7 @@
   "description": "A simple script that displays working hours for a specific DataHub product.",
   "main": "dist/dh-widget.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode=production"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "babel-loader": "^8.2.3",
+    "babel-preset-minify": "^0.5.1",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "webpack": "^5.70.0",
