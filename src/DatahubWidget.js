@@ -7,7 +7,6 @@ class DatahubWidget {
 
     constructor(settings) {
 
-
         this.settings = {
             openingHoursWidgetClass: 'dh-oh-widget',
             language: 'fi',

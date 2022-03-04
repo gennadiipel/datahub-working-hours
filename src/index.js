@@ -8,7 +8,7 @@ const sass = require("./style.sass");
 const init = function(settings = {}) {
 
     jQuery(() => {
-        new DatahubWidget({})
+        const dhWidgets = new DatahubWidget(settings)
     })
 
     

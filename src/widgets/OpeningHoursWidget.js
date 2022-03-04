@@ -27,34 +27,57 @@ class OpeningHoursWidget {
     getAllWidgetContainer() {
         $('[data-dh-opening-hours]').each(async (_, element) => {
             const productId = $(element).data('dh-product-id')
+
+            const elementObject = $(element).get(0)
+
             if (!productId) throw new Error('No product ID defined for the Datahub widget')
 
             $(element).addClass(this.settings.openingHoursWidgetClass + ' loading')
+
+            elementObject.append(this.generateLayout())
 
             const productService = new ProductService(productId)
 
             const product = (await productService.getData()).data.product[0]
             const layout = this.generateLayout(product)
 
+            $(element).removeClass('loading')
 
-            document.getElementById('test').replaceWith(layout)
+            $(element).html('')
+            elementObject.append(layout)
         })
 
     }
 
 
-    generateLayout(product) {
-
-        const listItems = product.openingHours.map(day => {
-            return (
-                <p>
-                    <span>
-                        {this.languageService.r(day.weekday)}
-                    </span>
-                    {this.getProperTime(day.openFrom)} - {this.getProperTime(day.openTo)}
-                </p>
-            )
-        })
+    generateLayout(product = null) {
+        let listItems
+        if (product) {
+            listItems = product.openingHours.map(day => {
+                if (day.open) {
+                    return (
+                        <p>
+                            <span>
+                                {this.languageService.r(day.weekday)}
+                            </span>
+                            {this.getProperTime(day.openFrom) || ''}{(this.getProperTime(day.openTo)) ? '- ' + this.getProperTime(day.openTo) : ''}
+                        </p>
+                    )
+                } else {
+                    return (
+                        <p>
+                            <span className="dh-oh__day-closed">
+                                {this.languageService.r('closed')}
+                            </span>
+                        </p>
+                    )
+                }
+                
+            })
+        } else {
+            listItems = (<p>{ this.languageService.r('loading') }</p>)
+        }
+        
 
         const content = (
             <div className="dh-oh__container">
@@ -72,7 +95,7 @@ class OpeningHoursWidget {
 
 
     getProperTime(time) {
-        return time.substring(0, 5)
+        return (time) ? time.substring(0, 5) : null
     }
 }
 

@@ -10,6 +10,8 @@ class LanguageService {
             friday: 'Friday',
             saturday: 'Saturday',
             sunday: 'Sunday',
+            loading: 'Loading...',
+            closed: 'Closed',
         },
 
         fi: {
@@ -20,7 +22,9 @@ class LanguageService {
             thursday: 'Torstai',
             friday: 'Perjantai',
             saturday: 'Lauantai',
-            sunday: 'Sunnuntai'
+            sunday: 'Sunnuntai',
+            loading: 'Odottaa...',
+            closed: 'Suljettu'
         }
     }
 
