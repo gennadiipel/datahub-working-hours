@@ -15,6 +15,19 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader",
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: '',
+              name: 'dh-widgets.css'
+            }
+          },
+          "sass-loader",
+        ],
+      },
     ],
   },
   mode: "development",
