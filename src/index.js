@@ -1,16 +1,14 @@
 import regeneratorRuntime from "regenerator-runtime";
 
-import DatahubWidget from './datahub-widget';
-import Product from './product';
-
 import jQuery from 'jquery';
+import DatahubWidget from "./DatahubWidget";
+import OpeningHoursWidget from "./widgets/OpeningHoursWidget";
 
 
-const init = function(settings) {
+const init = function(settings = {}) {
 
     jQuery(() => {
-        let dhWidget = new DatahubWidget(settings)
-        console.log(dhWidget.settings)
+        new DatahubWidget({})
     })
 
     

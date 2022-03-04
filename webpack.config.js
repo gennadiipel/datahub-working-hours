@@ -4,7 +4,7 @@ module.exports = {
   entry: [path.resolve(__dirname, "src/index.js")],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "dh-widget.js",
+    filename: "dh-widgets.js",
     library: "dhWidget",
     libraryTarget: "umd",
   },
